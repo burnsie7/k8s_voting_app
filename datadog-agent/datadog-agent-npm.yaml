@@ -16,9 +16,9 @@ spec:
     spec:
       serviceAccountName: datadog-agent
       containers:
-      - image: datadog/agent:latest
+      - name: datadog-agent
+        image: datadog/agent:latest
         imagePullPolicy: Always
-        name: datadog-agent
         ports:
           - containerPort: 8125
             hostPort: 8125
@@ -69,16 +69,16 @@ spec:
           - name: DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL
             value: "true"
           - name: DD_AC_EXCLUDE
-            value: "name:datadog-agent"
+            value: ""
           - name: DD_KUBERNETES_POD_LABELS_AS_TAGS
             value: '{"service":"service","app":"app"}'
         resources:
           requests:
-            cpu: 500m
-            memory: 500Mi
+            cpu: "200m"
+            memory: "500Mi"
           limits:
-            cpu: 1000m
-            memory: 1500Mi
+            cpu: "500m"
+            memory: "1500Mi"
         volumeMounts:
           - name: dockersocket
             mountPath: /var/run/docker.sock
@@ -89,7 +89,7 @@ spec:
             mountPath: /host/sys/fs/cgroup
             readOnly: true
           - name: pointdir
-            mountPath: /opt/datadog-agent/run
+            mountPath: /var/datadog-agent/run
           - name: logpodpath
             mountPath: /var/log/pods
           - name: logcontainerpath
@@ -156,7 +156,7 @@ spec:
             path: /sys/fs/cgroup
           name: cgroups
         - hostPath:
-            path: /opt/datadog-agent/run
+            path: /var/datadog-agent/run
           name: pointdir
         - hostPath:
             path: /var/log/pods

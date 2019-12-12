@@ -21,4 +21,5 @@ kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/maste
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml"
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
 kubectl create secret generic datadog-secret --from-literal api-key="<YOUR_API_KEY>"
+kubectl create -f datadog-agent/datadog-agent.yaml
 ```
