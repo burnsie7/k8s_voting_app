@@ -22,12 +22,17 @@ kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/maste
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
 ```
 
-## Deploy Datadog Agent(s)
+## Create cluster agent service
 
 ```
 kubectl apply -f datadog-agent/datadog-cluster-agent-service.yaml
+```
+
+## Deploy Datadog Agent(s)
+
+```
 kubectl apply -f datadog-agent/datadog-cluster-agent.yaml
-kubectl create -f datadog-agent/datadog-agent-npm.yaml
+kubectl create -f datadog-agent/datadog-agent.yaml
 ```
 
 ## Deploy voting app
@@ -42,4 +47,13 @@ kubectl create -f postgres-service.yaml
 kubectl create -f worker-app-pod.yaml
 kubectl create -f result-app-pod.yaml
 kubectl create -f result-app-service.yaml
+```
+
+## copy/paste for testing
+
+```
+kubectl delete daemonset datadog-agent
+kubectl delete deployment datadog-cluster-agent
+kubectl apply -f datadog-agent/datadog-cluster-agent.yaml
+kubectl create -f datadog-agent/datadog-agent.yaml
 ```
