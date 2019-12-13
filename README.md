@@ -22,12 +22,6 @@ kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/maste
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
 ```
 
-## Create cluster agent service
-
-```
-kubectl apply -f datadog-agent/datadog-cluster-agent-service.yaml
-```
-
 ## Deploy Datadog Agent(s)
 
 ```
