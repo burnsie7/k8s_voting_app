@@ -26,16 +26,21 @@ spec:
           - name: DD_API_KEY
             valueFrom:
               secretKeyRef:
-                name: datadog-secret
-                key: api-key
-          - name: DD_COLLECT_KUBERNETES_EVENTS
-            value: "true"
-          - name: DD_LEADER_ELECTION
-            value: "true"
+                name: datadog-api
+                key: token
+          - name: DD_APP_KEY
+            valueFrom:
+              secretKeyRef:
+                name: datadog-app
+                key: token
           - name: DD_CLUSTER_AGENT_AUTH_TOKEN
             valueFrom:
               secretKeyRef:
                 name: datadog-auth-token
                 key: token
+          - name: DD_COLLECT_KUBERNETES_EVENTS
+            value: "true"
+          - name: DD_LEADER_ELECTION
+            value: "true"
           - name: DD_EXTERNAL_METRICS_PROVIDER_ENABLED
             value: 'true'
