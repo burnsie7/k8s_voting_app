@@ -14,6 +14,12 @@ kubectl create secret generic datadog-app --from-literal=token=___INSERT_APP_KEY
 kubectl create secret generic datadog-auth-token --from-literal=token=12345678901234567890123456789012
 ```
 
+## Kube state metrics (optional)
+
+```
+kubectl create -f kube-state-metrics
+```
+
 ## Create RBAC Permissions
 
 ```
