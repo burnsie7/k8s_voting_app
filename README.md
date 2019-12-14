@@ -26,6 +26,8 @@ kubectl create -f kube-state-metrics
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrole.yaml"
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/serviceaccount.yaml"
 kubectl create -f "https://raw.githubusercontent.com/DataDog/datadog-agent/master/Dockerfiles/manifests/rbac/clusterrolebinding.yaml"
+# If using cluster agent
+kubectl apply -f datadog-agent/rbac-agent.yaml
 ```
 
 ## Deploy Datadog Agent(s)
