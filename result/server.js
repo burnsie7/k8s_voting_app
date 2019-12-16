@@ -10,7 +10,11 @@ var express = require('express'),
     server = require('http').Server(app),
     io = require('socket.io')(server);
 
-const tracer = require('dd-trace').init()
+const tracer = require('dd-trace').init(DD_TRACE_AGENT_HOSTNAME='datadog-agent')
+console.log('Using dd-trace...x2')
+const span = tracer.startSpan('web.request')
+span.setTag('http.url', '/login')
+span.finish()
 
 io.set('transports', ['polling']);
 

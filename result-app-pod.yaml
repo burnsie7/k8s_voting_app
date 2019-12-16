@@ -12,3 +12,8 @@ spec:
           image: dogdemo/examplevotingapp_result:latest
           ports:
               - containerPort: 80
+          env:
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
