@@ -10,6 +10,8 @@ var express = require('express'),
     server = require('http').Server(app),
     io = require('socket.io')(server);
 
+const tracer = require('dd-trace').init()
+
 io.set('transports', ['polling']);
 
 var port = process.env.PORT || 4000;
