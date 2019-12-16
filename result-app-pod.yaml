@@ -8,6 +8,7 @@ metadata:
 spec:
     containers:
         - name: result-app
-          image: dockersamples/examplevotingapp_result
+          #image: dockersamples/examplevotingapp_result
+          image: dogdemo/examplevotingapp_result:latest
           ports:
               - containerPort: 80
