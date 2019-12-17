@@ -11,3 +11,8 @@ spec:
           image: dockersamples/examplevotingapp_vote
           ports:
               - containerPort: 80
+          env:
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP

@@ -9,3 +9,8 @@ spec:
     containers:
         - name: worker-app
           image: dockersamples/examplevotingapp_worker
+          env:
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
