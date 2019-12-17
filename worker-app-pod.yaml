@@ -8,7 +8,7 @@ metadata:
 spec:
     containers:
         - name: worker-app
-          image: dockersamples/examplevotingapp_worker
+          image: dogdemo/examplevotingapp_worker:latest
           env:
             - name: DD_AGENT_HOST
               valueFrom:
