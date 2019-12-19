@@ -25,5 +25,5 @@ spec:
           env:
             - name: DD_AGENT_HOST
               valueFrom:
-              fieldRef:
-                fieldPath: status.hostIP
+                fieldRef:
+                  fieldPath: status.hostIP
